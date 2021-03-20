@@ -78,12 +78,10 @@ public class Genome
     }
 
 
-    public void serialize(BufferedWriter writer) throws IOException
+    public void append(BufferedWriter writer) throws IOException
     {
-        for (Triangle triangle : triangles)
-        {
-            triangle.serialize(writer);
-        }
+        // Append current triangle to file
+        current.serialize(writer);
     }
 
 }

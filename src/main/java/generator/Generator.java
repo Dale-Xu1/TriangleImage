@@ -9,7 +9,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
@@ -35,14 +34,18 @@ public class Generator extends Group
     }
 
 
+    private final String output;
+
     private final Genome genome;
 
     private double error = 1;
     private int iterations = 0;
 
 
-    public Generator(Image image)
+    public Generator(Image image, String output)
     {
+        this.output = output;
+
         int width = (int) image.getWidth();
         int height = (int) image.getHeight();
 
@@ -73,8 +76,8 @@ public class Generator extends Group
             if (iterations > 200)
             {
                 // More iterations to fine tune
-                genome.next();
                 save();
+                genome.next();
 
                 error = genome.getError();
                 iterations = 0;
@@ -86,10 +89,10 @@ public class Generator extends Group
     {
         try
         {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("image.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(output, true));
 
             // Convert genome to text
-            genome.serialize(writer);
+            genome.append(writer);
             writer.close();
         }
         catch (IOException e)

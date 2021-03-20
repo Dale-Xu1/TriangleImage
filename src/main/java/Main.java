@@ -4,24 +4,34 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main extends Application
 {
 
     private static String file;
+    private static String output;
 
 
     public static void initialize(String[] args)
     {
         file = args[0];
+        output = args[1];
+
         launch();
     }
 
     @Override
-    public void start(Stage stage)
+    public void start(Stage stage) throws IOException
     {
         Image image = new Image("file:" + file);
-        Generator application = new Generator(image);
 
+        // Clear file
+        FileWriter writer = new FileWriter(output);
+        writer.close();
+
+        Generator application = new Generator(image, output);
         Scene scene = new Scene(application);
 
         // Initialize stage
