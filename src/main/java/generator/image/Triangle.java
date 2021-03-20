@@ -38,6 +38,17 @@ public class Triangle
         this.color = color;
     }
 
+    public Triangle(String string)
+    {
+        String[] parts = string.split(" ");
+
+        a = new Vector2(parts[0]);
+        b = new Vector2(parts[1]);
+        c = new Vector2(parts[2]);
+
+        color = new Color4(parts[3]);
+    }
+
 
     public Triangle mutate()
     {

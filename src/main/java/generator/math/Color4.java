@@ -28,6 +28,16 @@ public class Color4
         this.a = a;
     }
 
+    public Color4(String string)
+    {
+        String[] parts = string.split(",");
+
+        this.r = Double.parseDouble(parts[0]);
+        this.g = Double.parseDouble(parts[1]);
+        this.b = Double.parseDouble(parts[2]);
+        this.a = Double.parseDouble(parts[3]);
+    }
+
 
     public Color4 mutate()
     {

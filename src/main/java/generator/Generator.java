@@ -99,27 +99,6 @@ public class Generator extends Group
         {
             e.printStackTrace();
         }
-
-//        int width = 1980;
-//        int height = 1080;
-//
-//        Canvas canvas = new Canvas(width, height);
-//        GraphicsContext gc = canvas.getGraphicsContext2D();
-//
-//        // Render and store image
-//        genome.render(gc, width, height);
-//        WritableImage image = canvas.snapshot(null, null);
-//
-//        try
-//        {
-//            // Output image data
-//            File file = new File("result.png");
-//            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-//        }
-//        catch (IOException e)
-//        {
-//            e.printStackTrace();
-//        }
     }
 
 }

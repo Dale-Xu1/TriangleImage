@@ -23,21 +23,28 @@ public class Main extends Application
     }
 
     @Override
-    public void start(Stage stage) throws IOException
+    public void start(Stage stage)
     {
-        Image image = new Image("file:" + file);
+        try
+        {
+            // Clear file
+            FileWriter writer = new FileWriter(output);
+            writer.close();
 
-        // Clear file
-        FileWriter writer = new FileWriter(output);
-        writer.close();
+            Image image = new Image("file:" + file);
+            Generator application = new Generator(image, output);
 
-        Generator application = new Generator(image, output);
-        Scene scene = new Scene(application);
+            Scene scene = new Scene(application);
 
-        // Initialize stage
-        stage.setTitle("Triangle Image");
-        stage.setScene(scene);
-        stage.show();
+            // Initialize stage
+            stage.setTitle("Triangle Image");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }

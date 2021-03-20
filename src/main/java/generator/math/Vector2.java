@@ -24,6 +24,14 @@ public class Vector2
         this.y = y;
     }
 
+    public Vector2(String string)
+    {
+        String[] parts = string.split(",");
+
+        x = Double.parseDouble(parts[0]);
+        y = Double.parseDouble(parts[1]);
+    }
+
 
     public Vector2 mutate()
     {
