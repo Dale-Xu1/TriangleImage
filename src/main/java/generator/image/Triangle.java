@@ -5,6 +5,9 @@ import generator.math.Vector2;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class Triangle
 {
 
@@ -57,6 +60,16 @@ public class Triangle
         gc.lineTo(b.x * width, b.y * height);
         gc.lineTo(c.x * width, c.y * height);
         gc.fill();
+    }
+
+
+    public void serialize(BufferedWriter writer) throws IOException
+    {
+        writer.write(a.x + "," + a.y + ' ');
+        writer.write(b.x + "," + b.y + ' ');
+        writer.write(c.x + "," + c.y + ' ');
+
+        writer.write(color.r + "," + color.g + ',' + color.b + ',' + color.a + '\n');
     }
 
 }

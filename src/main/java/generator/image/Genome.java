@@ -2,6 +2,8 @@ package generator.image;
 
 import javafx.scene.canvas.GraphicsContext;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +75,15 @@ public class Genome
             triangle.render(gc, width, height);
         }
         current.render(gc, width, height);
+    }
+
+
+    public void serialize(BufferedWriter writer) throws IOException
+    {
+        for (Triangle triangle : triangles)
+        {
+            triangle.serialize(writer);
+        }
     }
 
 }

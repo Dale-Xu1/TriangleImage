@@ -15,6 +15,7 @@ dependencies {
     implementation 'org.openjfx:javafx-base:15.0.1:win'
     implementation 'org.openjfx:javafx-controls:15.0.1:win'
     implementation 'org.openjfx:javafx-graphics:15.0.1:win'
+    implementation 'org.openjfx:javafx-swing:15.0.1:win'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }

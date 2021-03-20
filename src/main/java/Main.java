@@ -25,7 +25,7 @@ public class Main extends Application
         Scene scene = new Scene(application);
 
         // Initialize stage
-        stage.setTitle("Hill Climbing");
+        stage.setTitle("Triangle Image");
         stage.setScene(scene);
         stage.show();
     }

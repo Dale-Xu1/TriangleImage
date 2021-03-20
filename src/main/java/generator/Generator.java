@@ -8,6 +8,10 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class Generator extends Group
@@ -70,11 +74,49 @@ public class Generator extends Group
             {
                 // More iterations to fine tune
                 genome.next();
+                save();
 
                 error = genome.getError();
                 iterations = 0;
             }
         }
+    }
+
+    private void save()
+    {
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("image.txt"));
+
+            // Convert genome to text
+            genome.serialize(writer);
+            writer.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+//        int width = 1980;
+//        int height = 1080;
+//
+//        Canvas canvas = new Canvas(width, height);
+//        GraphicsContext gc = canvas.getGraphicsContext2D();
+//
+//        // Render and store image
+//        genome.render(gc, width, height);
+//        WritableImage image = canvas.snapshot(null, null);
+//
+//        try
+//        {
+//            // Output image data
+//            File file = new File("result.png");
+//            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+//        }
+//        catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
     }
 
 }
